@@ -1,4 +1,4 @@
-{
+var data = {
 "type": "FeatureCollection",
 "name": "North_Carolina_Landslide_Points",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
