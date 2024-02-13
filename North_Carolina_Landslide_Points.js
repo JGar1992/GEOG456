@@ -6593,3 +6593,4 @@ var data = {
 { "type": "Feature", "properties": { "OBJECTID": 122225, "Process_ID": 202203292004, "Project": "Landslide Hazard Mapping", "County": "Rutherford", "Quad": "Dysartsville", "Col_Date": null, "Mvmnt_Date": null, "SM_State": "Inactive - dormant", "SM_Rate_1": "Extremely rapid (>5 m/sec)", "SM_Mat_1": "Debris", "SM_Type_1": "Slide - translational", "SM_Rate_2": null, "SM_Mat_2": null, "SM_Type_2": null, "Slp_Config": "Stream bank", "Fatalities": null, "Confidence": null, "MapMethod": null, "GlobalID": "{789B768E-7605-4544-87EC-AF6FF9B6A0C5}" }, "geometry": { "type": "Point", "coordinates": [ -81.860918227858761, 35.527973574970993 ] } }
 ]
 }
+var array = data.features.map(e => e.geometry.coordinates[0])
