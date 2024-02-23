@@ -1,0 +1,239 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.520556,36.008333 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Alamance",
+     "Scale":"Battle",
+     "War":"Regulators Movement",
+     "Date":"16MAY1771"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -78.109722,34.457778 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Moore's Creek Bridge",
+     "Scale":"Major Battle",
+     "War":"American Revolutionary War",
+     "Date":"27FEB1776"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -81.238611,35.475 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Ramsour's Mill",
+     "Scale":"Major Battle",
+     "War":"American Revolutionary War",
+     "Date":"20JUN1780"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -80.084289,35.152622 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Colson's Mill",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"21JUL1780"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -80.843333,35.226944 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Charlotte",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"26SEP1780"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -81.3442,35.1507 ]
+     },
+     "properties": {
+     "Engagement":"Battle of King's Mountain",
+     "Scale":"Major Battle",
+     "War":"American Revolutionary War",
+     "Date":"07OCT1780"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -80.5404,36.0902 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Shallow Ford",
+     "Scale":"Skirmish",
+     "War":"American Revolutionary War",
+     "Date":"14OCT1780"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -80.9596,35.428 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Cowan's Ford",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"01FEB1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -80.8478,35.539 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Torrence's Tavern",
+     "Scale":"Skirmish",
+     "War":"American Revolutionary War",
+     "Date":"02FEB1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.5269,36.035 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Clapp's Mill",
+     "Scale":"Skirmish",
+     "War":"American Revolutionary War",
+     "Date":"02MAR1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.5772,36.1771 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Wetzel's Mill",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"06MAR1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.8515,36.1292 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Guilford Courthouse",
+     "Scale":"Major Battle",
+     "War":"American Revolutionary War",
+     "Date":"15MAR1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -77.9818,34.7179 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Rockfish Creek",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"02AUG1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.3835,35.4666 ]
+     },
+     "properties": {
+     "Engagement":"Skirmish at the House in the Horseshoe",
+     "Scale":"Skirmish",
+     "War":"American Revolutionary War",
+     "Date":"05AUG1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -78.6079,34.628 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Elizabethtown",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"27AUG1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.335,34.9225 ]
+     },
+     "properties": {
+     "Engagement":"Battle of McPhaul's Mill",
+     "Scale":"Unsubstantiated",
+     "War":"American Revolutionary War",
+     "Date":"01SEP1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.327,35.9034 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Lindley's Mill",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"13SEP1781"
+     }
+   },
+   {
+     "type": "Feature",
+     "geometry": {
+        "type": "Point",
+        "coordinates":  [ -79.1441,34.807 ]
+     },
+     "properties": {
+     "Engagement":"Battle of Raft Swamp",
+     "Scale":"Battle",
+     "War":"American Revolutionary War",
+     "Date":"15OCT1781"
+     }
+   }
+ ]
+ }

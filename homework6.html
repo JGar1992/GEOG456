@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="northcarolinaatwar.js"></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>North Carolina in the Revolutionary War</h2>
+<h3>Joshua Garcia: Homework 6</h3>
+
+<table id="mytable">
+  <tr>
+    <th>Engagement</th>
+    <th>Scale</th>
+    <th>War</th>
+    <th>Date</th>
+  </tr>
+  
+  
+</table>
+
+</body>
+
+<script>
+
+//northcarolinaatwar.features.map(e => ({'Engagement':e.Engagement, 'Scale':e.Scale, 'War':e.War, 'Date':e.Date}))
+
+var x = document.getElementById('mytable')
+
+for (var i =0; i<northcarolinaatwar.features.length; i++){
+  var myNewRow = document.createElement('tr');
+  var myNewCell1 = document.createElement('td');
+  var myNewCell2 = document.createElement('td');
+  var myNewCell3 = document.createElement('td');
+  var myNewCell4 = document.createElement('td');
+  var myNewCell5 = document.createElement('td');
+  myNewCell1.innerText = northcarolinaatwar.features[i].properties.Engagement;
+  myNewCell2.innerText = northcarolinaatwar.features[i].properties.Scale;
+  myNewCell3.innerText = northcarolinaatwar.features[i].properties.War;
+  myNewCell4.innerText = northcarolinaatwar.features[i].properties.Date;
+  myNewRow.append(myNewCell1)
+  myNewRow.append(myNewCell2)
+  myNewRow.append(myNewCell3)
+  myNewRow.append(myNewCell4)
+  x.append(myNewRow)
+};
+
+</script>
+</html>
+
