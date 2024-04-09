@@ -92,9 +92,6 @@
         }).addTo(map);
     map.addLayer(conflict) 
 
-
-
-
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
 
@@ -110,6 +107,15 @@
 
         window.onload = function() {
             slider.value = 1;  
+
+            var marker = L.marker([lat, lon],{title: "Title" }  ).addTo(mymap);
+
+//Before Wednesday
+//Add Pop-Ups
+//Add citations
+//Bonus: Add a legend
+
+
     };
 
    
