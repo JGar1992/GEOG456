@@ -11,7 +11,8 @@ var northcarolinaatwar = {
    "Engagement":"Siege of Catechna",
    "Scale":"Minor Battle",
    "War":"Tuscarora War",
-   "Date":"07APR1712"
+   "Date":"April 7, 1712",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/tuscarora-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -24,7 +25,8 @@ var northcarolinaatwar = {
    "Engagement":"Assault on Fort Neoheroka",
    "Scale":"Minor Battle",
    "War":"Tuscarora War",
-   "Date":"20MAR1713"
+   "Date":"March 20, 1713",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/tuscarora-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -37,7 +39,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Alamance",
    "Scale":"Minor Battle",
    "War":"Regulators Movement",
-   "Date":"16MAY1771"
+   "Date":"May 16, 1771",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -50,7 +53,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Moore's Creek Bridge",
    "Scale":"Major Battle",
    "War":"American Revolutionary War",
-   "Date":"27FEB1776"
+   "Date":"February 27, 1776",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -63,7 +67,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Ramsour's Mill",
    "Scale":"Major Battle",
    "War":"American Revolutionary War",
-   "Date":"20JUN1780"
+   "Date":"June 20, 1780",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -76,7 +81,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Colson's Mill",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"21JUL1780"
+   "Date":"July 21, 1780",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -89,7 +95,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Charlotte",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"26SEP1780"
+   "Date":"September 26, 1780",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -102,7 +109,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of King's Mountain",
    "Scale":"Major Battle",
    "War":"American Revolutionary War",
-   "Date":"07OCT1780"
+   "Date":"October 7, 1780",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -115,7 +123,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Shallow Ford",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"14OCT1780"
+   "Date":"October 14, 1780",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -128,7 +137,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Cowan's Ford",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"01FEB1781"
+   "Date":"February 01, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -141,7 +151,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Torrence's Tavern",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"02FEB1781"
+   "Date":"February 2, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -154,7 +165,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Clapp's Mill",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"02MAR1781"
+   "Date":"March 2, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -167,7 +179,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Wetzel's Mill",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"06MAR1781"
+   "Date":"March 6, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -180,7 +193,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Guilford Courthouse",
    "Scale":"Major Battle",
    "War":"American Revolutionary War",
-   "Date":"15MAR1781"
+   "Date":"March 15, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -193,7 +207,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Rockfish Creek",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"02AUG1781"
+   "Date":"August 2, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -206,7 +221,8 @@ var northcarolinaatwar = {
    "Engagement":"Skirmish at the House in the Horseshoe",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"05AUG1781"
+   "Date":"August 5, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -219,7 +235,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Elizabethtown",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"27AUG1781"
+   "Date":"August 27, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -232,7 +249,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of McPhaul's Mill",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"01SEP1781"
+   "Date":"September 1, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -245,7 +263,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Lindley's Mill",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"13SEP1781"
+   "Date":"September 13, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -258,7 +277,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Raft Swamp",
    "Scale":"Minor Battle",
    "War":"American Revolutionary War",
-   "Date":"15OCT1781"
+   "Date":"October 15, 1781",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/rev-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -271,7 +291,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Roanoke Island",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"08FEB1862"
+   "Date":"February 8, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -284,7 +305,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of New Bern",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"14MAR1862"
+   "Date":"March 14, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -297,7 +319,8 @@ var northcarolinaatwar = {
    "Engagement":"Siege of Fort Macon",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"23MAR1862"
+   "Date":"March 23, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -310,7 +333,8 @@ var northcarolinaatwar = {
    "Engagement":"Skirmish at Gillett's Farm",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"13APR1862"
+   "Date":"April 13, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -323,7 +347,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of South Mills",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"19APR1862"
+   "Date":"April 19, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -336,7 +361,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Tranter's Creek",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"05JUN1862"
+   "Date":"June 5, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -349,7 +375,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Kinston",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"14DEC1862"
+   "Date":"December 14, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -362,7 +389,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Whitehall",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"16DEC1862"
+   "Date":"December 16, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -375,7 +403,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Goldsboro Bridge",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"17DEC1862"
+   "Date":"December 17, 1862",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -388,7 +417,8 @@ var northcarolinaatwar = {
    "Engagement":"Attack on New Bern",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"13MAR1863"
+   "Date":"March 13, 1863",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -401,7 +431,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Washington ",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"30MAR1863"
+   "Date":"March 30, 1863",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -414,7 +445,8 @@ var northcarolinaatwar = {
    "Engagement":"Attack on New Bern",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"01FEB1864"
+   "Date":"February 1, 1864",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -427,7 +459,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Plymouth",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"17APR1864"
+   "Date":"April 17, 1864",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -440,7 +473,8 @@ var northcarolinaatwar = {
    "Engagement":"First Battle of Fort Fisher",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"24DEC1864"
+   "Date":"December 24, 1864",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -453,7 +487,8 @@ var northcarolinaatwar = {
    "Engagement":"Second Battle of Fort Fisher",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"13JAN1865"
+   "Date":"January 13, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -466,7 +501,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Sugar Loaf",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"11FEB1865"
+   "Date":"February 11, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -479,7 +515,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Fort Anderson",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"18FEB1865"
+   "Date":"February 18, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -492,7 +529,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Town Creek",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"19FEB1865"
+   "Date":"February 19, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -505,7 +543,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Forks Road",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"20FEB1865"
+   "Date":"February 20, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -518,7 +557,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Wyse Fork",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"08MAR1865"
+   "Date":"March 8, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -531,7 +571,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Monroe's Crossroads",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"10MAR1865"
+   "Date":"March 10, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -544,7 +585,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Averasboro",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"16MAR1865"
+   "Date":"March 16, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -557,7 +599,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Bentonville",
    "Scale":"Major Battle",
    "War":"Civil War",
-   "Date":"19MAR1865"
+   "Date":"March 19, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -570,7 +613,8 @@ var northcarolinaatwar = {
    "Engagement":"Skirmish in Boone",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"28MAR1865"
+   "Date":"March 28, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -583,7 +627,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Wilkesboro",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"29MAR1865"
+   "Date":"March 29, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -596,7 +641,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Moccasin Creek",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"10APR1865"
+   "Date":"April 10, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -609,7 +655,8 @@ var northcarolinaatwar = {
    "Engagement":"Skirmish at Shallow Ford",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"11APR1865"
+   "Date":"April 11, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -622,7 +669,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Mocksville",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"11APR1865"
+   "Date":"April 11, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -635,7 +683,8 @@ var northcarolinaatwar = {
    "Engagement":"Skirmish Near Smithfield",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"11APR1865"
+   "Date":"April 11, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -648,7 +697,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Salisbury (Grant's Creek)",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"12APR1865"
+   "Date":"April 12, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -661,7 +711,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Morrisville",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"13APR1865"
+   "Date":"April 13, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -674,7 +725,8 @@ var northcarolinaatwar = {
    "Engagement":"Battle of Morganton (Catawba River)",
    "Scale":"Minor Battle",
    "War":"Civil War",
-   "Date":"17APR1865"
+   "Date":"April 17, 1865",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/civil-war.htm'>View the original map here</a>"
    }
  },
  {
@@ -687,7 +739,8 @@ var northcarolinaatwar = {
    "Engagement":"Sinking of U-85 (Battle of the Atlantic)",
    "Scale":"Minor Battle",
    "War":"World War II",
-   "Date":"14APR1942"
+   "Date":"April 14, 1942",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/world-war-2.htm'>View the original map here</a>"
    }
  },
  {
@@ -700,7 +753,8 @@ var northcarolinaatwar = {
    "Engagement":"Sinking of U-352 (Battle of the Atlantic)",
    "Scale":"Minor Battle",
    "War":"World War II",
-   "Date":"09MAY1942"
+   "Date":"May 9, 1942",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/world-war-2.htm'>View the original map here</a>"
    }
  },
  {
@@ -713,7 +767,8 @@ var northcarolinaatwar = {
    "Engagement":"Sinking of U-701 (Battle of the Atlantic)",
    "Scale":"Minor Battle",
    "War":"World War II",
-   "Date":"07JUL1942"
+   "Date":"July 7, 1942",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/world-war-2.htm'>View the original map here</a>"
    }
  },
  {
@@ -726,7 +781,8 @@ var northcarolinaatwar = {
    "Engagement":"Sinking of U-576 (Battle of the Atlantic)",
    "Scale":"Minor Battle",
    "War":"World War II",
-   "Date":"15JUL1942"
+   "Date":"July 15, 1942",
+   "MapLink": "<a href='https://waywelivednc.com/maps/historical/world-war-2.htm'>View the original map here</a>"
    }
  }
 ]

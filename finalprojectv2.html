@@ -1,0 +1,177 @@
+<html>
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 50%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #4d9cbb;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        #mapid {
+            width: 900px;
+            height: 500px;
+        }
+
+        /*
+        .legend {
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        */
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            margin-right: 5px;
+        }
+
+        /*
+        .citation {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        */
+
+        .popup-content {
+        text-align: center;
+}
+        
+    </style>
+
+    <head>
+        <title>North Carolina at War</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+        <script src="northcarolinaatwar.js"></script>
+    </head>
+
+    <body>
+        <h2>North Carolina at War</h2>
+        <h3>Joshua Garcia: Final Project Work in Progress</h3>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="60" value="1" class="slider" id="myRange"> Date: <span id="demo"></span>
+        </div>
+        <div id="mapid"></div>
+        
+        
+   
+        
+        
+        <div class="citation">
+            <h3>Adapted from Mark Anderson Moore's <a href="https://waywelivednc.com/maps/historical/historical.htm">maps</a> in <em>The Way We Lived in North Carolina</em> (UNC Press, 2003)</h3>
+        </div>
+
+        <script>
+            
+            var map = L.map('mapid').setView([35.3585, -79.8945], 6.5);
+
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
+            }).addTo(map);
+
+            var uncIcon = L.icon({
+                iconUrl: 'Battleicon.png',
+                iconSize: [12, 12],
+                popupAnchor: [0, 0]
+            });
+
+            var conflict = L.geoJSON(northcarolinaatwar.features[0], {
+                pointToLayer: function (feature, latlng) {
+                    var marker = L.marker(latlng, { icon: uncIcon });
+                    marker.bindPopup('<div class="popup-content"><b>' +feature.properties.Engagement+ '</b><em><br>'+feature.properties.Date +"<br>"+feature.properties.War+"</em><br>"+feature.properties.MapLink); 
+                    return marker;
+                }
+            }).addTo(map);
+
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+
+            // Add legend control
+            var legend = L.control({position: 'bottomleft'});
+
+            // Define legend content
+            legend.onAdd = function (map) {
+                var div = L.DomUtil.create('div', 'legend');
+                div.innerHTML += '<div class="legend-title">Legend</div>';
+                div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #FFC300;"></div><div>Southern Tuscarora Nation</div></div>';
+                div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #581845;"></div><div>Kingdom of Great Britain</div></div>';
+                div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #334FFF;"></div><div>United States of America</div></div>';
+                div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #C70039;"></div><div>Confederate States of America</div></div>';
+                div.innerHTML += '<div class="legend-row"><img src="Battleicon.png" height="20" width="20"> Battle</div>';
+                return div;
+            };
+
+            // Add legend control to the map
+            legend.addTo(map);
+
+            slider.oninput = function () {
+                console.log(this.value);
+                output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
+                map.removeLayer(conflict);
+                conflict = L.geoJSON(northcarolinaatwar.features.slice(0, this.value), {
+                    pointToLayer: function (feature, latlng) {
+                        var marker = L.marker(latlng, { icon: uncIcon });
+                        marker.bindPopup('<div class="popup-content"><b>' +feature.properties.Engagement+ '</b><em><br>'+feature.properties.Date +"<br>"+feature.properties.War+"</em><br>"+feature.properties.MapLink); 
+                        return marker;
+                    }
+                });
+                map.addLayer(conflict);
+            };
+
+            window.onload = function () {
+                slider.value = 1;
+            };
+        </script>
+    </body>
+</html>
