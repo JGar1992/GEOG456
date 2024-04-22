@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src = "./nccounties.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>North Carolina at War</title>
@@ -153,7 +152,7 @@
         var conflict = L.geoJSON(northcarolinaatwar.features[0], {
             pointToLayer: function (feature, latlng) {
                 var marker = L.marker(latlng,  myIcon(feature.properties.Scale) );
-                //ChatGPT contributed to this section of the script.
+                //ChatGPT helped contribute to this section of the script.
                 marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
                 return marker;
             }
@@ -162,6 +161,7 @@
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
 
+        //Professor Javier Arce-Nazario and ChatGPT helped contribute to this section of the script. 
         function myIcon (battle) {
             var myArray = [15,15]
             if (battle == "Major Battle") {myArray = [35,35]}
@@ -171,16 +171,16 @@
             return {icon: uncIcon}
         }
 
-        //ChatGPT contributed to this section of the script. 
+        //ChatGPT helped contribute to this section of the script. 
         var n = 0
         slider.oninput = function () {
             output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
             map.removeLayer(conflict);
             conflict = L.geoJSON(northcarolinaatwar.features.slice(0, this.value), {
                 pointToLayer: function (feature, latlng) {
-                    var iconSize = [15, 15]; // Default size
+                    var iconSize = [15, 15]; 
                     if (feature.properties.Scale === "Major Battle") {
-                        iconSize = [30, 30]; // Larger size for major battles
+                        iconSize = [30, 30]; 
                     }
                     var marker = L.marker(latlng, {
                     icon: L.icon({
@@ -196,10 +196,10 @@
         map.addLayer(conflict);
     };
 
-         //ChatGPT contributed to this section of the script.
+        //ChatGPT helped contribute to this section of the script.
          var legend = L.control({position: 'bottomleft'});
 
-        //ChatGPT contributed to this section of the script.
+        //ChatGPT helped contribute to this section of the script.
         legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'legend');
             div.innerHTML += '<div class="legend-title">Legend</div>';
@@ -212,7 +212,6 @@
             return div;
         };
 
-        // Add legend control to the map
         legend.addTo(map);
 
         window.onload = function () {

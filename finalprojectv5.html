@@ -1,53 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="./nccounties.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined Maps</title>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-
-    <!-- Combined CSS -->
+    <title>North Carolina at War</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
     <style>
-        #firstmap, #secondmap { height: 500px; width: 100%; }
+        .container {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .slidecontainer {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        #mapid {
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .citation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            margin: 0 auto;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #4d9cbb;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .legend {
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: left; 
+            max-width: 200px; 
+            
+        }
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            height: 30px;
+        }
+
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #999;
+            margin-right: 5px;
+        }
+
+        .leaflet-popup-content {
+            text-align: center;
+        }
+
+        body {
+            background-color: rgb(255, 250, 240);
+        }
+
+        h1 {
+            font-family: "IM Fell English", sans-serif; 
+            font-size: 42px; 
+            text-align: center; 
+            margin-bottom: 1px;
+        }
+
+        h4 {
+            margin-top: 1px;
+        }
+
     </style>
 </head>
 <body>
-    <!-- First Map Section -->
-    <div id="firstmap"></div>
+    <div class="container">
+        <h1>North Carolina at War</h1>
+        <h4><em>A geovisualization of battles fought in North Carolina from 1712 to 1942</em></h4>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="60" value="1" class="slider" id="myRange"> Date: <span id="demo"></span>
+        </div>
+        <div id="mapid"></div>
+        
+        <div class="citation">
+            <h3>Adapted from Mark Anderson Moore's <a href="https://waywelivednc.com/maps/historical/historical.htm">maps</a> in <em>The Way We Lived in North Carolina</em> (UNC Press, 2003)</h3>
+        </div>
+    </div>
 
-    <!-- Second Map Section -->
-    <div id="secondmap"></div>
+    <div class="slider-container">
+        <input type="range" min="1712" max="1945" value="3" class="slider" id="year" oninput='moveSlider()'>
+        <div class="tick-container">
+            <div class="tick-container">
+                <span class="tick">1712</span>
+                <span class="tick">1778</span>
+                <span class="tick">1802</span>
+                <span class="tick">1820</span>
+                <span class="tick">1840</span>
+                <span class="tick">1861</span>
+                <span class="tick">1865</span>
+                <span class="tick">1918</span>
+                <span class="tick">1942</span>
+            </div>
+  </div>
+<div id="firstmap"></div>
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
 
-    <!-- Combined JavaScript -->
-    <script src="./nccounties.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
     <script src="northcarolinaatwar.js"></script>
     <script>
-        // First Map Initialization
-        var mymap1 = L.map('firstmap').setView([35.91359630123158,-79.05896902084352], 7);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(mymap1);
-        var countyLayer = L.layerGroup().addTo(mymap1);
+        var map = L.map('mapid').setView([35.3585, -79.8945], 6.5);
 
-        var temparray = [];
-        var county = [];
-        var nextCoord = [];
-
-        // Second Map Initialization
-        var mymap2 = L.map('secondmap').setView([35.3585, -79.8945], 6.5);
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            //attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
             attribution: 'Map by Joshua T. Garcia'
-        }).addTo(mymap2);
+        }).addTo(map);
 
         var uncIcon = L.icon({
             iconUrl: 'Battleicon.png',
@@ -58,25 +172,29 @@
         var conflict = L.geoJSON(northcarolinaatwar.features[0], {
             pointToLayer: function (feature, latlng) {
                 var marker = L.marker(latlng,  myIcon(feature.properties.Scale) );
+                //ChatGPT contributed to this section of the script.
                 marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
                 return marker;
             }
-        }).addTo(mymap2);
+        }).addTo(map);
 
-        var slider = document.getElementById("year");
-        var output = document.getElementById("comment");
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
 
-        function myIcon(battle) {
-            var myArray = [15,15];
-            if (battle == "Major Battle") { myArray = [35,35]; }
-            uncIcon.options.iconSize = myArray;
-            return { icon: uncIcon };
+        function myIcon (battle) {
+            var myArray = [15,15]
+            if (battle == "Major Battle") {myArray = [35,35]}
+            uncIcon.options.iconSize = myArray
+            // console.log(uncIcon.options.iconSize)
+            console.log(n++)
+            return {icon: uncIcon}
         }
 
-        var n = 0;
+        //ChatGPT contributed to this section of the script. 
+        var n = 0
         slider.oninput = function () {
             output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
-            mymap2.removeLayer(conflict);
+            map.removeLayer(conflict);
             conflict = L.geoJSON(northcarolinaatwar.features.slice(0, this.value), {
                 pointToLayer: function (feature, latlng) {
                     var iconSize = [15, 15]; // Default size
@@ -84,34 +202,91 @@
                         iconSize = [30, 30]; // Larger size for major battles
                     }
                     var marker = L.marker(latlng, {
-                        icon: L.icon({
-                            iconUrl: 'Battleicon.png',
-                            iconSize: iconSize,
-                            popupAnchor: [0, 0]
-                        })
-                    });
-                    marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
-                    return marker;
-                }
-            });
-            mymap2.addLayer(conflict);
-        };
+                    icon: L.icon({
+                        iconUrl: 'Battleicon.png',
+                        iconSize: iconSize,
+                        popupAnchor: [0, 0]
+                    })
+                });
+                marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
+                return marker;
+            }
+        });
+        map.addLayer(conflict);
+    };
 
-        var legend = L.control({position: 'bottomleft'});
+         //ChatGPT contributed to this section of the script.
+         var legend = L.control({position: 'bottomleft'});
 
+        //ChatGPT contributed to this section of the script.
         legend.onAdd = function (map) {
-            var div = L.DomUtil.create('div', 'legend');
+        var div = L.DomUtil.create('div', 'legend');
             div.innerHTML += '<div class="legend-title">Legend</div>';
+            //div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #FFC300;"></div><div>Southern Tuscarora Nation</div></div>';
+            //div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #581845;"></div><div>The British Empire</div></div>';
+            //div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #334FFF;"></div><div>United States of America</div></div>';
+            //div.innerHTML += '<div class="legend-row"><div class="legend-color" style="background-color: #C70039;"></div><div>Confederate States of America</div></div>';
             div.innerHTML += '<div class="legend-row"><img src="Battleicon.png" height="15" width="15"> Minor Battle</div>';
             div.innerHTML += '<div class="legend-row"><img src="Battleicon.png" height="30" width="30"> Major Battle</div>';
             return div;
         };
 
-        legend.addTo(mymap2);
+        // Add legend control to the map
+        legend.addTo(map);
 
         window.onload = function () {
             slider.value = 1;
         };
+
+        var countyLayer = L.layerGroup().addTo(mymap);
+    var temparray = []
+    var county = []
+    var nextCoord = []
+
+function moveSlider(){
+    countyLayer.clearLayers();
+    var year = document.getElementById("year").value
+    var compareyear = year *10000
+    for (var i = 0; i < counties.features.length; i = i + 1){
+        if (compareyear < counties.features[i].properties.END_N && compareyear > counties.features[i].properties.START_N) {
+            drawCounty(i)
+        }
+    }
+}    
+
+function drawCounty(i){
+    if (counties.features[i].geometry.type == "MultiPolygon"){
+        for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
+            for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
+                for (var l = 0; l <counties.features[i].geometry.coordinates[j][k].length; l = l + 1){
+                    var nextLat = counties.features[i].geometry.coordinates[j][k][l][1]
+                    var nextLong = counties.features[i].geometry.coordinates[j][k][l][0]
+                    nextCoord = [nextLat,nextLong]
+                    county.push(nextCoord)
+                }
+                var polyg = L.polygon(county, {color:"red", fillcolor:"red", opacity:0.7}).addTo(countyLayer)
+                .bindTooltip(counties.features[i].properties.NAME)
+                county = []
+                nextCoord = []
+            }
+        }
+    }
+    if (counties.features[i].geometry.type == "Polygon"){
+        for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
+            for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
+                    var nextLat = counties.features[i].geometry.coordinates[j][k][1]
+                    var nextLong = counties.features[i].geometry.coordinates[j][k][0]
+                    nextCoord = [nextLat,nextLong]
+                    county.push(nextCoord)
+                }
+                var polyg = L.polygon(county, {color:"red", fillcolor:"red", opacity:0.7}).addTo(countyLayer)
+                .bindTooltip(counties.features[i].properties.NAME)
+                county = []
+                nextCoord = []
+            }
+        }
+}
+
     </script>
 </body>
 </html>
