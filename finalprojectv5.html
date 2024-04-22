@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Maps</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    <!-- Combined CSS -->
+    <style>
+        #firstmap, #secondmap { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+    <!-- First Map Section -->
+    <div id="firstmap"></div>
+
+    <!-- Second Map Section -->
+    <div id="secondmap"></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <!-- Combined JavaScript -->
+    <script src="./nccounties.js"></script>
+    <script src="northcarolinaatwar.js"></script>
+    <script>
+        // First Map Initialization
+        var mymap1 = L.map('firstmap').setView([35.91359630123158,-79.05896902084352], 7);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(mymap1);
+        var countyLayer = L.layerGroup().addTo(mymap1);
+
+        var temparray = [];
+        var county = [];
+        var nextCoord = [];
+
+        // Second Map Initialization
+        var mymap2 = L.map('secondmap').setView([35.3585, -79.8945], 6.5);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Map by Joshua T. Garcia'
+        }).addTo(mymap2);
+
+        var uncIcon = L.icon({
+            iconUrl: 'Battleicon.png',
+            iconSize: [15, 15],
+            popupAnchor: [0, 0]
+        });
+
+        var conflict = L.geoJSON(northcarolinaatwar.features[0], {
+            pointToLayer: function (feature, latlng) {
+                var marker = L.marker(latlng,  myIcon(feature.properties.Scale) );
+                marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
+                return marker;
+            }
+        }).addTo(mymap2);
+
+        var slider = document.getElementById("year");
+        var output = document.getElementById("comment");
+
+        function myIcon(battle) {
+            var myArray = [15,15];
+            if (battle == "Major Battle") { myArray = [35,35]; }
+            uncIcon.options.iconSize = myArray;
+            return { icon: uncIcon };
+        }
+
+        var n = 0;
+        slider.oninput = function () {
+            output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
+            mymap2.removeLayer(conflict);
+            conflict = L.geoJSON(northcarolinaatwar.features.slice(0, this.value), {
+                pointToLayer: function (feature, latlng) {
+                    var iconSize = [15, 15]; // Default size
+                    if (feature.properties.Scale === "Major Battle") {
+                        iconSize = [30, 30]; // Larger size for major battles
+                    }
+                    var marker = L.marker(latlng, {
+                        icon: L.icon({
+                            iconUrl: 'Battleicon.png',
+                            iconSize: iconSize,
+                            popupAnchor: [0, 0]
+                        })
+                    });
+                    marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
+                    return marker;
+                }
+            });
+            mymap2.addLayer(conflict);
+        };
+
+        var legend = L.control({position: 'bottomleft'});
+
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'legend');
+            div.innerHTML += '<div class="legend-title">Legend</div>';
+            div.innerHTML += '<div class="legend-row"><img src="Battleicon.png" height="15" width="15"> Minor Battle</div>';
+            div.innerHTML += '<div class="legend-row"><img src="Battleicon.png" height="30" width="30"> Major Battle</div>';
+            return div;
+        };
+
+        legend.addTo(mymap2);
+
+        window.onload = function () {
+            slider.value = 1;
+        };
+    </script>
+</body>
+</html>
