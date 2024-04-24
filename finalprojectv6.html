@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Carolina at War</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+    <style>
+        #mapid {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapid"></div>
+
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://jgar1992.github.io/GEOG456/northcarolinaatwar.js"></script>
+    <script src="./nccounties.js"></script>
+    <script>
+        var map = L.map('mapid').setView([35.3585, -79.8945], 6.5);
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Map by Joshua T. Garcia'
+        }).addTo(map);
+
+        var countyLayer = L.geoJson(counties, {
+            style: function (feature) {
+                return { color: '#581845', weight: 2 };
+            }
+        }).addTo(map);
+
+        var uncIcon = L.icon({
+            iconUrl: 'https://jgar1992.github.io/GEOG456/Battleicon.png',
+            iconSize: [15, 15],
+            popupAnchor: [0, 0]
+        });
+
+        var conflict = L.geoJSON(northcarolinaatwar.features, {
+            pointToLayer: function (feature, latlng) {
+                var iconSize = [15, 15];
+                if (feature.properties.Scale === "Major Battle") {
+                    iconSize = [30, 30];
+                }
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: 'Battleicon.png',
+                        iconSize: iconSize,
+                        popupAnchor: [0, 0]
+                    })
+                }).bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
+            }
+        }).addTo(map);
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+
+        slider.oninput = function () {
+            output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
+            updateCountyColors(parseInt(northcarolinaatwar.features[(this.value - 1)].properties.Date.split(',')[1]));
+        };
+
+        function updateCountyColors(year) {
+            countyLayer.setStyle(function (feature) {
+                var countyName = feature.properties.NAME;
+                var color = getColorForCounty(countyName, year);
+                return { color: color, weight: 2 };
+            });
+        }
+
+        function getColorForCounty(countyName, year) {
+            if (year < 1776) {
+                return "#581845"; // Purple
+            } else if (year < 1861) {
+                return "#334FFF"; // Blue
+            } else if (year < 1862 || year >= 1865) {
+                return "#C70039"; // Red
+            } else {
+                return ["Carteret", "Craven", "Pamlico", "Beaufort", "Hyde", "Washington", "Tyrell", "Dare", "Gates", "Chowan", "Perquimans", "Pasquotank", "Camden", "Currituck"].includes(countyName) ? "#334FFF" : "#C70039"; // Blue for specific counties in 1862
+            }
+        }
+    </script>
+</body>
+</html>

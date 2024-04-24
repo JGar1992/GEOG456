@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="./nccounties.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>North Carolina at War</title>
@@ -16,10 +15,12 @@
             max-width: 900px;
         }
 
+
         .slidecontainer {
             width: 50%;
             margin: 0 auto;
         }
+
 
         #mapid {
             width: 100%;
@@ -27,10 +28,13 @@
             margin: 0 auto;
         }
 
+
         .citation {
             text-align: center;
             margin-top: 20px;
         }
+
+
 
 
         .slider {
@@ -45,9 +49,11 @@
             margin: 0 auto;
         }
 
+
         .slider:hover {
             opacity: 1;
         }
+
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -58,12 +64,14 @@
             cursor: pointer;
         }
 
+
         .slider::-moz-range-thumb {
             width: 25px;
             height: 25px;
             background: #4CAF50;
             cursor: pointer;
         }
+
 
         .legend {
             padding: 10px;
@@ -77,10 +85,12 @@
             
         }
 
+
         .legend-title {
             font-weight: bold;
             margin-bottom: 5px;
         }
+
 
         .legend-row {
             display: flex;
@@ -90,6 +100,8 @@
         }
 
 
+
+
         .legend-color {
             width: 20px;
             height: 20px;
@@ -97,13 +109,16 @@
             margin-right: 5px;
         }
 
+
         .leaflet-popup-content {
             text-align: center;
         }
 
+
         body {
             background-color: rgb(255, 250, 240);
         }
+
 
         h1 {
             font-family: "IM Fell English", sans-serif; 
@@ -112,9 +127,11 @@
             margin-bottom: 1px;
         }
 
+
         h4 {
             margin-top: 1px;
         }
+
 
     </style>
 </head>
@@ -123,7 +140,7 @@
         <h1>North Carolina at War</h1>
         <h4><em>A geovisualization of battles fought in North Carolina from 1712 to 1942</em></h4>
         <div class="slidecontainer">
-            <input type="range" min="1" max="60" value="1" class="slider" id="myRange"> Date: <span id="demo"></span>
+            <input type="range" min="1" max="65" value="1" class="slider" id="myRange"> Date: <span id="demo"></span>
         </div>
         <div id="mapid"></div>
         
@@ -132,55 +149,46 @@
         </div>
     </div>
 
-    <div class="slider-container">
-        <input type="range" min="1712" max="1945" value="3" class="slider" id="year" oninput='moveSlider()'>
-        <div class="tick-container">
-            <div class="tick-container">
-                <span class="tick">1712</span>
-                <span class="tick">1778</span>
-                <span class="tick">1802</span>
-                <span class="tick">1820</span>
-                <span class="tick">1840</span>
-                <span class="tick">1861</span>
-                <span class="tick">1865</span>
-                <span class="tick">1918</span>
-                <span class="tick">1942</span>
-            </div>
-  </div>
-<div id="firstmap"></div>
-
-
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
     integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
     crossorigin=""></script>
-    <script src="northcarolinaatwar.js"></script>
+    <script src="https://jgar1992.github.io/GEOG456/northcarolinaatwar.js"></script>
+    <script src="./nccounties.js"></script>
+
+
     <script>
         var map = L.map('mapid').setView([35.3585, -79.8945], 6.5);
-
+        var county = []
+        var countyLayer = L.layerGroup().addTo(map);
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
             //attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC'
             attribution: 'Map by Joshua T. Garcia'
         }).addTo(map);
 
+
         var uncIcon = L.icon({
-            iconUrl: 'Battleicon.png',
+            iconUrl: 'https://jgar1992.github.io/GEOG456/Battleicon.png',
             iconSize: [15, 15],
             popupAnchor: [0, 0]
         });
 
+
         var conflict = L.geoJSON(northcarolinaatwar.features[0], {
             pointToLayer: function (feature, latlng) {
                 var marker = L.marker(latlng,  myIcon(feature.properties.Scale) );
-                //ChatGPT contributed to this section of the script.
+                //ChatGPT helped contribute to this section of the script.
                 marker.bindPopup('<div class="popup-content"><b>' + feature.properties.Engagement + '</b><em><br>' + feature.properties.Date + "<br>" + feature.properties.War + "</em><br>" + feature.properties.MapLink);
                 return marker;
             }
         }).addTo(map);
 
+
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
 
+
+        //Professor Javier Arce-Nazario and ChatGPT helped contribute to this section of the script. 
         function myIcon (battle) {
             var myArray = [15,15]
             if (battle == "Major Battle") {myArray = [35,35]}
@@ -190,16 +198,66 @@
             return {icon: uncIcon}
         }
 
-        //ChatGPT contributed to this section of the script. 
+
+        //ChatGPT helped contribute to this section of the script. 
         var n = 0
         slider.oninput = function () {
-            output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
-            map.removeLayer(conflict);
+        output.innerHTML = northcarolinaatwar.features[(this.value - 1)].properties.Date;
+        map.removeLayer(conflict);
+
+            //Kerry Bannen, Mark Chilton, and ChatGPT contributed to this section of the script. 
+            countyLayer.clearLayers();
+            var date = northcarolinaatwar.features[(this.value - 1)].properties.Date
+            var array = date.split(",")
+            var year = array[1].trimStart();
+            var yearinJSONformat = parseInt(year)*10000
+            console.log(year)
+            var compareyear = year *10000
+            for (var i = 0; i < counties.features.length; i = i + 1){
+                if (compareyear < counties.features[i].properties.END_N && compareyear > counties.features[i].properties.START_N) {
+                    drawCounty(i)
+                }
+            }
+           function drawCounty(i){
+                if (counties.features[i].geometry.type == "MultiPolygon"){
+                    for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
+                        for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
+                            for (var l = 0; l <counties.features[i].geometry.coordinates[j][k].length; l = l + 1){
+                                var nextLat = counties.features[i].geometry.coordinates[j][k][l][1]
+                                var nextLong = counties.features[i].geometry.coordinates[j][k][l][0]
+                                nextCoord = [nextLat,nextLong]
+                                county.push(nextCoord)
+                            }
+                            var polyg = L.polygon(county, {color:"grey", fillcolor:"blank", opacity:50}).addTo(countyLayer)
+                            .bindTooltip(counties.features[i].properties.NAME)
+                            county = []
+                            nextCoord = []
+                        }
+                    }
+                }
+                if (counties.features[i].geometry.type == "Polygon"){
+                    for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
+                        for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
+                                var nextLat = counties.features[i].geometry.coordinates[j][k][1]
+                                var nextLong = counties.features[i].geometry.coordinates[j][k][0]
+                                nextCoord = [nextLat,nextLong]
+                                county.push(nextCoord)
+                            }
+                            var polyg = L.polygon(county, {color:"grey", fillcolor:"blank", opacity:50}).addTo(countyLayer)
+                            .bindTooltip(counties.features[i].properties.NAME)
+                            county = []
+                            nextCoord = []
+                        }
+            }
+        }
+
+
+
             conflict = L.geoJSON(northcarolinaatwar.features.slice(0, this.value), {
                 pointToLayer: function (feature, latlng) {
-                    var iconSize = [15, 15]; // Default size
+                    var iconSize = [15, 15]; 
                     if (feature.properties.Scale === "Major Battle") {
-                        iconSize = [30, 30]; // Larger size for major battles
+                        iconSize = [30, 30]; 
                     }
                     var marker = L.marker(latlng, {
                     icon: L.icon({
@@ -215,10 +273,12 @@
         map.addLayer(conflict);
     };
 
-         //ChatGPT contributed to this section of the script.
+
+        //ChatGPT helped contribute to this section of the script.
          var legend = L.control({position: 'bottomleft'});
 
-        //ChatGPT contributed to this section of the script.
+
+        //ChatGPT helped contribute to this section of the script.
         legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'legend');
             div.innerHTML += '<div class="legend-title">Legend</div>';
@@ -231,62 +291,16 @@
             return div;
         };
 
-        // Add legend control to the map
+
         legend.addTo(map);
+
 
         window.onload = function () {
             slider.value = 1;
         };
 
-        var countyLayer = L.layerGroup().addTo(mymap);
-    var temparray = []
-    var county = []
-    var nextCoord = []
 
-function moveSlider(){
-    countyLayer.clearLayers();
-    var year = document.getElementById("year").value
-    var compareyear = year *10000
-    for (var i = 0; i < counties.features.length; i = i + 1){
-        if (compareyear < counties.features[i].properties.END_N && compareyear > counties.features[i].properties.START_N) {
-            drawCounty(i)
-        }
-    }
-}    
-
-function drawCounty(i){
-    if (counties.features[i].geometry.type == "MultiPolygon"){
-        for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
-            for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
-                for (var l = 0; l <counties.features[i].geometry.coordinates[j][k].length; l = l + 1){
-                    var nextLat = counties.features[i].geometry.coordinates[j][k][l][1]
-                    var nextLong = counties.features[i].geometry.coordinates[j][k][l][0]
-                    nextCoord = [nextLat,nextLong]
-                    county.push(nextCoord)
-                }
-                var polyg = L.polygon(county, {color:"red", fillcolor:"red", opacity:0.7}).addTo(countyLayer)
-                .bindTooltip(counties.features[i].properties.NAME)
-                county = []
-                nextCoord = []
-            }
-        }
-    }
-    if (counties.features[i].geometry.type == "Polygon"){
-        for (var j = 0; j < counties.features[i].geometry.coordinates.length; j = j + 1){
-            for (var k = 0; k < counties.features[i].geometry.coordinates[j].length; k = k + 1){
-                    var nextLat = counties.features[i].geometry.coordinates[j][k][1]
-                    var nextLong = counties.features[i].geometry.coordinates[j][k][0]
-                    nextCoord = [nextLat,nextLong]
-                    county.push(nextCoord)
-                }
-                var polyg = L.polygon(county, {color:"red", fillcolor:"red", opacity:0.7}).addTo(countyLayer)
-                .bindTooltip(counties.features[i].properties.NAME)
-                county = []
-                nextCoord = []
-            }
-        }
-}
-
+        
     </script>
 </body>
 </html>
